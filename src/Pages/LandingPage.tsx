@@ -42,6 +42,7 @@ const LandingPage = () => {
 
   const handleClose = () => {
     setPopupVisible(true);
+    //All the things
     localStorage.setItem("popupClosed", "true");
   };
 
