@@ -26,7 +26,7 @@ export const footerLinks = [
 
 export const socialMediaImages = [
   {
-    image: "/social/linkedin.svg",
+    image: "/social/linkedin2.svg",
     label: "Linkedin",
   },
   {

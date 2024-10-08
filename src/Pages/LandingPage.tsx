@@ -36,16 +36,18 @@ const LandingPage = () => {
   useEffect(() => {
     const isOpen = localStorage.getItem("popupClosed");
     console.log(isOpen);
+    // @ts-ignore
+    setPopupVisible(isOpen);
   }, []);
 
   const handleClose = () => {
-    setPopupVisible(false);
+    setPopupVisible(true);
     localStorage.setItem("popupClosed", "true");
   };
 
   return (
     <div className="w-full relative">
-      <Overlay handleClose={handleClose} />
+      {!isPopupVisible && <Overlay handleClose={handleClose} />}
 
       <Stripe />
       <Hero />
