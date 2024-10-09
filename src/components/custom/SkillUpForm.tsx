@@ -13,16 +13,20 @@ import {
   SelectValue,
 } from "../ui/select";
 import { Textarea } from "../ui/textarea";
-
+import { useState } from "react";
+import axios from "axios";
+import { Loader } from "lucide-react";
 const formSchema = z.object({
   username: z.string().min(2).max(50),
   email: z.string().email(),
-  phonenumber: z.number().min(10),
+  phonenumber: z.string().min(10).max(12),
   qualification: z.string(),
   message: z.string().min(10),
 });
 
 const SkillUpForm = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -31,7 +35,17 @@ const SkillUpForm = () => {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    setIsLoading(true);
+
+    axios
+      .post(`${import.meta.env.VITE_BACKEND}/submit`, values)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => [console.error(err)])
+      .finally(() => {
+        setIsLoading(false);
+      });
   }
   return (
     <div className="form shadow p-6">
@@ -102,7 +116,7 @@ const SkillUpForm = () => {
           />
           <FormField
             control={form.control}
-            name="qualification"
+            name="message"
             render={({ field }) => (
               <FormItem>
                 <FormControl>
@@ -118,8 +132,14 @@ const SkillUpForm = () => {
           <Button
             type="submit"
             className="w-full bg-gradient-to-r from-green-tertiary to-50% to-green-three rounded-sm text-white font-semibold">
-            Get Free Career Evaluation{" "}
-            <img src="/icons/plane.svg" alt="icons" />
+            {isLoading ? (
+              <Loader />
+            ) : (
+              <div className="flex items-center gap-2">
+                Get Free Career Evaluation{" "}
+                <img src="/icons/plane.svg" alt="icons" />
+              </div>
+            )}
           </Button>
         </form>
       </Form>
