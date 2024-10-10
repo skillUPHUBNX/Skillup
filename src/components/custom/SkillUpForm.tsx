@@ -41,6 +41,7 @@ const SkillUpForm = () => {
       .post(`${import.meta.env.VITE_BACKEND}/submit`, values)
       .then((res) => {
         console.log(res);
+        form.reset();
       })
       .catch((err) => [console.error(err)])
       .finally(() => {
