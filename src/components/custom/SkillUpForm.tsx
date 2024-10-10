@@ -2,8 +2,8 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormField, FormItem } from "../ui/form";
 import {
   Select,
@@ -11,26 +11,31 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../ui/select";
-import { Textarea } from "../ui/textarea";
+} from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import axios from "axios";
 import { Loader } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 const formSchema = z.object({
   username: z.string().min(2).max(50),
   email: z.string().email(),
-  phonenumber: z.string().min(10).max(12),
+  phonenumber: z.string().min(10).max(13),
   qualification: z.string(),
   message: z.string().min(10),
 });
 
 const SkillUpForm = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
+  const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       username: "",
+      email: "",
+      phonenumber: "",
+      qualification: "",
+      message: "",
     },
   });
 
@@ -39,11 +44,21 @@ const SkillUpForm = () => {
 
     axios
       .post(`${import.meta.env.VITE_BACKEND}/submit`, values)
-      .then((res) => {
-        console.log(res);
+      .then((_) => {
         form.reset();
+        toast({
+          title: "Form Submitted",
+          description: "Your form has been successfully submitted!",
+        });
       })
-      .catch((err) => [console.error(err)])
+      .catch((err) => {
+        console.error(err);
+        toast({
+          title: "Submission Failed",
+          description: "There was an error submitting the form.",
+          variant: "destructive",
+        });
+      })
       .finally(() => {
         setIsLoading(false);
       });
@@ -138,7 +153,7 @@ const SkillUpForm = () => {
             ) : (
               <div className="flex items-center gap-2">
                 Get Free Career Evaluation{" "}
-                <img src="/icons/plane.svg" alt="icons" />
+                <img src="/icons/rocket.svg" alt="icons" width={20} />
               </div>
             )}
           </Button>
