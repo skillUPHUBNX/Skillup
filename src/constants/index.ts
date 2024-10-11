@@ -27,15 +27,18 @@ export const footerLinks = [
 export const socialMediaImages = [
   {
     image: "/social/linkedin2.svg",
+    imagetwo: "/social/linkedin2.svg",
     label: "Linkedin",
   },
   {
     image: "/social/facebook.svg",
+    imagetwo: "/social/facebooktwo.svg",
     label: "Facebook",
     invert: true,
   },
   {
     image: "/social/instagram.svg",
+    imagetwo: "/social/instagramtwo.svg",
     label: "Instagram",
   },
 ];
@@ -108,13 +111,13 @@ export const corousalData = [
     joining: "Joined 12/06/2024",
   },
   {
-    highlight: "Hubnex Skillup has redefined my career path. ",
+    highlight: "Most Motivating and energetic journey ",
     review:
-      "Hubnex Skillup has redefined my career path. The mentorship and hands-on workshops are second to none.",
-    name: "Divya",
-    role: "UX/UI Designer",
+      "Hubnex Skillup the great learning curve for my career. The mentorship and hands-on workshops are second to none.",
+    name: "Prakash",
+    role: "Developer",
     company: "Google",
-    location: "Hyderbad",
+    location: "Bihar",
     from: "Learned Skills from Hubnex skillsup",
     img: "/company/googleone.svg",
     star: 5,

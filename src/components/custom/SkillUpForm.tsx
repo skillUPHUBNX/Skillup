@@ -4,7 +4,13 @@ import { useForm } from "react-hook-form";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Form, FormControl, FormField, FormItem } from "../ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "../ui/form";
 import {
   Select,
   SelectContent,
@@ -18,11 +24,36 @@ import axios from "axios";
 import { Loader } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 const formSchema = z.object({
-  username: z.string().min(2).max(50),
-  email: z.string().email(),
-  phonenumber: z.string().min(10).max(13),
-  qualification: z.string(),
-  message: z.string().min(10),
+  username: z
+    .string()
+    .min(2, "Username must be at least 2 characters long")
+    .max(50, "Username must be less than 50 characters long")
+    .trim()
+    .refine((val) => val.trim().length > 0, {
+      message: "Username cannot be empty or just spaces",
+    }),
+  email: z
+    .string()
+    .email("Please enter a valid email")
+    .trim()
+    .refine((val) => val.trim().length > 0, {
+      message: "Email cannot be empty or just spaces",
+    }),
+  phonenumber: z
+    .string()
+    .min(10, "Phone number must be at least 10 digits")
+    .max(10, "Phone number cannot exceed 10 digits")
+    .refine((val) => /^\d+$/.test(val), {
+      message: "Phone number must only contain digits",
+    }),
+  qualification: z.string().nonempty("Qualification is required"),
+  message: z
+    .string()
+    .min(10, "Message must be at least 10 characters long")
+    .trim()
+    .refine((val) => val.trim().length > 0, {
+      message: "Message cannot be empty or just spaces",
+    }),
 });
 
 const SkillUpForm = () => {
@@ -64,7 +95,7 @@ const SkillUpForm = () => {
       });
   }
   return (
-    <div className="form shadow p-6">
+    <div className="form shadow p-6 relative">
       <h1 className="text-center text-3xl mt-5 font-semibold text-green-three">
         Let's Connect
       </h1>
@@ -72,6 +103,7 @@ const SkillUpForm = () => {
         Let's align our constellations! Reach out and let the magic of
         collaboration illuminate our skies.
       </p>
+
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
@@ -82,6 +114,7 @@ const SkillUpForm = () => {
                 <FormControl>
                   <Input placeholder="Full Name" {...field} />
                 </FormControl>
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -93,6 +126,7 @@ const SkillUpForm = () => {
                 <FormControl>
                   <Input placeholder="Email" {...field} />
                 </FormControl>
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -104,6 +138,7 @@ const SkillUpForm = () => {
                 <FormControl>
                   <Input placeholder="Phone Number" {...field} />
                 </FormControl>
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -127,6 +162,7 @@ const SkillUpForm = () => {
                     <SelectItem value="N/A">Others+</SelectItem>
                   </SelectContent>
                 </Select>
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -142,6 +178,7 @@ const SkillUpForm = () => {
                     {...field}
                   />
                 </FormControl>
+                <FormMessage />
               </FormItem>
             )}
           />

@@ -13,7 +13,7 @@ interface IProp {
 const PricingCard = ({ about, feature, id, link, name, plan, tag }: IProp) => {
   return (
     <div
-      className={`w-[374px] ${
+      className={`w-[374px] transition-all cursor-pointer hover:scale-[1.02] ${
         id === 2 ? "h-[684px] bg-green-secondary text-white" : "h-[644px]"
       } rounded-lg overflow-hidden shadow-xl relative flex flex-col p-3 items-center  justify-around`}>
       <div className="flex flex-col items-center justify-center ">

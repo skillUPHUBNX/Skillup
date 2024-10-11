@@ -5,8 +5,10 @@ import Batch from "../custom/Batch";
 import SkillUpForm from "../custom/SkillUpForm";
 import Learner from "./Learner";
 import { handleLinkClick } from "@/lib/utils";
+import { useState } from "react";
 
 const Footer = () => {
+  const [hovered, setHovered] = useState<string | null>(null);
   return (
     <div className="w-full">
       <div className="w-full h-full lg:h-[80vh] my-12 lg:my-32 p-5">
@@ -52,17 +54,18 @@ const Footer = () => {
             </p>
             <div className="flex items-center justify-start lg:justify-center gap-4 my-5">
               {socialMediaImages.map((app) => (
-                <div
+                <Link
+                  to={""}
                   key={app.label}
-                  className={`w-8 h-8 rounded-full  ${
-                    app.invert ? "bg-green-secondary" : "bg-white"
-                  } flex items-center justify-center`}>
+                  className="cursor-pointer w-8 h-8 rounded-full bg-white hover:bg-green-primary flex items-center justify-center"
+                  onMouseEnter={() => setHovered(app.label)}
+                  onMouseLeave={() => setHovered(null)}>
                   <img
-                    src={app.image}
+                    src={hovered === app.label ? app.imagetwo : app.image}
                     alt={app.label}
                     className="h-4 object-contain"
                   />
-                </div>
+                </Link>
               ))}
             </div>
           </div>

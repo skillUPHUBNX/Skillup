@@ -15,7 +15,9 @@ const Header = () => {
   const handleNavigation = (sectionId: string) => {
     navigate(`/?scrollTo=${sectionId}`);
   };
+
   const [isSticky, setIsSticky] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false); // State to control the menu open/close
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,11 +35,17 @@ const Header = () => {
     };
   }, []);
 
+  // Function to close the dropdown menu when a link is clicked
+  const handleMenuClick = (section?: string) => {
+    setMenuOpen(false); // Close the menu
+    if (section) handleNavigation(section);
+  };
+
   return (
     <>
       <div className={isSticky ? "h-[90px]" : ""}></div>
       <div
-        className={` ${
+        className={`${
           isSticky
             ? "fixed top-0 left-0 w-full bg-white shadow-lg z-50"
             : "relative"
@@ -82,9 +90,13 @@ const Header = () => {
             <Button text="Enroll Now" />
           </div>
           <div className="block lg:hidden">
-            <DropdownMenu>
+            <DropdownMenu open={menuOpen} onOpenChange={setMenuOpen}>
               <DropdownMenuTrigger>
-                <img src="/icons/menu.svg" alt="menu" />
+                <img
+                  src="/icons/menu.svg"
+                  alt="menu"
+                  onClick={() => setMenuOpen(!menuOpen)} // Toggle menu on click
+                />
               </DropdownMenuTrigger>
               <DropdownMenuContent>
                 {headerNavigationLinks.map((link, i) => {
@@ -100,7 +112,9 @@ const Header = () => {
                             }  `
                           }
                           to={link.link}
-                          key={link.label}>
+                          key={link.label}
+                          onClick={() => setMenuOpen(false)} // Close the menu on link click
+                        >
                           {link.label}
                         </NavLink>
                       </DropdownMenuItem>
@@ -109,7 +123,7 @@ const Header = () => {
                     return (
                       <DropdownMenuItem
                         key={i}
-                        onClick={() => handleNavigation(link.section || "")}>
+                        onClick={() => handleMenuClick(link.section || "")}>
                         <li key={i} className="list-none cursor-pointer">
                           {link.label}
                         </li>
@@ -118,7 +132,9 @@ const Header = () => {
                   }
                 })}
                 <DropdownMenuItem key={"jeu"}>
-                  <Button text="Enroll Now" classname="w-full" />
+                  <div onClick={() => setMenuOpen(false)}>
+                    <Button text="Enroll Now" classname="w-full" />
+                  </div>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
