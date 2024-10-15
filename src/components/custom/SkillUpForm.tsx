@@ -48,12 +48,7 @@ const formSchema = z.object({
     }),
   qualification: z.string().nonempty("Qualification is required"),
   message: z
-    .string()
-    .min(10, "Message must be at least 10 characters long")
-    .trim()
-    .refine((val) => val.trim().length > 0, {
-      message: "Message cannot be empty or just spaces",
-    }),
+    .string(),
 });
 
 const SkillUpForm = () => {
