@@ -39,7 +39,7 @@ const Footer = () => {
                 </div>
               ))}
             </div>
-            <Button text="Enroll Now!" />
+            <Button text="Enroll Now!" classname="mx-auto md:mx-0" />
           </div>
           <SkillUpForm />
         </div>

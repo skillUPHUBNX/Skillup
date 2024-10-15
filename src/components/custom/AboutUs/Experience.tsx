@@ -3,7 +3,7 @@ import ExperienceCard from "../ExperienceCard";
 
 const Experience = () => {
   return (
-    <div className="mt-10 lg:mt-28 w-full h-auto  p-2 ">
+    <div className="mt-10 lg:mt-28 w-full h-auto  p-0 ">
       <div className="w-full lg:w-[85%] mx-auto">
         <h1 className="text-[20px] lg:text-4xl font-bold text-center my-3">
           Experience The <i className="text-green-primary">Statistical</i> Power
@@ -28,12 +28,7 @@ const Experience = () => {
             id={card.id}
           />
         ))}
-        <ExperienceCard
-          id={1}
-          img="/company/experienceTwo.svg"
-          title="Globally Recognized Certifications"
-          para="Our programs are not just acknowledged—they are respected by employers around the world. Our certifications open doors to new opportunities and help you stand out in the competitive job market."
-        />
+        
       </div>
     </div>
   );

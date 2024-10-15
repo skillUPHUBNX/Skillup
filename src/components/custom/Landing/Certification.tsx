@@ -36,7 +36,7 @@ const Certification = () => {
         <div className="flex items-center justify-center lg:justify-start  gap-2 my-4 lg:my-4">
           <Button link="#" text="Enroll Now" classname="py-3 px-8 lg:py-3 " />
           <ShinyButton className="border border-black-100 rounded-md">
-            <p className="text-xs text-nowrap text-black font-semibold py-1">
+            <p className="text-sm lg:text-base text-nowrap text-black font-semibold py-1">
               Get Free Career Evaluation
             </p>
           </ShinyButton>

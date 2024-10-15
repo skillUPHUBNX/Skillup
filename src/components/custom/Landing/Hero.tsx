@@ -71,11 +71,11 @@ very first day.
             </div>
           </div>
         </div>
-        <div className="w-full flex flex-col items-center justify-center gap-4">
+        <div className="w-full flex flex-col items-center justify-center gap-2">
           <div className="flex items-center justify-between gap-2 my-4 lg:my-0">
             <Button text="Enroll Now" classname="py-3 px-8 lg:py-3 " />
             <ShinyButton className="border rounded-md">
-              <span className="text-xs text-nowrap text-black font-semibold py-1">
+              <span className="text-sm lg:text-base text-nowrap text-black font-semibold py-1">
                 Get Free Career Evaluation
               </span>
             </ShinyButton>

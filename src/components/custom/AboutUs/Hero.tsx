@@ -20,12 +20,12 @@ const Hero = () => {
           classname="py-3 px-8 lg:py-3 "
         />
         <ShinyButton className="border rounded-md py-3">
-          <span className="text-xs text-nowrap text-black font-semibold py-1">
+          <span className="text-xs md:text-base text-nowrap text-black font-semibold py-1">
             Get Free Career Evaluation
           </span>
         </ShinyButton>
       </div>
-      <div className="flex items-center my-6 mx-auto">
+      <div className="flex items-start my-6 w-[75%] text-center">
         <img src="/icons/success.svg" alt="success" />
         <p className=" text-xs lg:font-medium">
           100% Money Back Guarantee if you're not satisfied with the Evaluation

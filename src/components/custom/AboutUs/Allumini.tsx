@@ -1,6 +1,6 @@
 const Allumini = () => {
   return (
-    <div className="w-full lg:w-[80%] mx-auto p-4">
+    <div className="w-full lg:w-[80%] mx-auto p-4 text-center md:text-left">
       <h1 className="text-xl md:text-2xl lg:text-3xl text-center font-semibold my-4">
         Our Alumni Network: A Community of Leaders
       </h1>

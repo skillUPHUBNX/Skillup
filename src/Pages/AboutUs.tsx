@@ -28,6 +28,7 @@ const AboutUs = () => {
       <Hero />
       <Intro />
       <Mission />
+      
       <Team />
       <Feature />
       <Experience />

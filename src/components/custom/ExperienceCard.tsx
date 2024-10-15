@@ -17,7 +17,7 @@ const ExperienceCard = ({ img, number, para, sign, tag, id, title }: IProp) => {
           ? "bg-green-light text-green-primary"
           : "bg-green-primary text-white"
       } overflow-hidden`}>
-      <div className="w-full h-full scale-up transition-all flex flex-col justify-between lg:justify-around ">
+      <div className="w-full h-full scale-up transition-all flex flex-col justify-between lg:justify-between ">
         <div>
           <h3 className="font-base mt-2 lg:mt-4 ">{tag}</h3>
           <h1 className="my-2 lg:my-4 text-2xl lg:text-5xl font-bold">

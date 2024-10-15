@@ -3,7 +3,7 @@ import Button from "../Button";
 
 const Mission = () => {
   return (
-    <div className="mt-8 lg:mt-16 w-full lg:w-[90%] mx-auto h-full lg:h-auto">
+    <div className="mt-8 lg:mt-16 w-full lg:w-full  h-full lg:h-auto">
       <div className="w-full flex items-center flex-col-reverse lg:flex-row justify-between gap-4">
         <div className="w-full lg:w-1/2 p-5">
           <h1 className="text-2xl lg:text-5xl font-semibold">
@@ -21,14 +21,14 @@ const Mission = () => {
             leadership. Today, our platform serves a diverse and global
             community, united by a common goal: the pursuit of excellence.
           </p>
-          <div className="flex items-center justify-between lg:justify-start gap-2 my-4 lg:my-4">
+          <div className="flex items-center justify-between lg:justify-start gap-1 lg:gap-2 my-4 lg:my-4">
             <Button
               link="/about"
               text="Enroll Now"
               classname="py-3 px-8 lg:py-3 "
             />
             <ShinyButton className="border rounded-md py-3">
-              <span className="text-xs text-nowrap text-black font-semibold py-1">
+              <span className="text-xs lg:text-base text-nowrap text-black font-semibold py-1">
                 Get Free Career Evaluation
               </span>
             </ShinyButton>
@@ -56,14 +56,14 @@ const Mission = () => {
             shaping the future workforce with the tools and insights they need
             to succeed.
           </p>
-          <div className="flex items-center justify-between lg:justify-start gap-2 my-4 lg:my-4">
+          <div className="flex items-center justify-between lg:justify-start gap-1 lg:gap-2 my-4 lg:my-4">
             <Button
               link="/about"
               text="Enroll Now"
               classname="py-3 px-8 lg:py-3 "
             />
             <ShinyButton className="border rounded-md py-3">
-              <span className="text-xs text-nowrap text-black font-semibold py-1">
+              <span className="text-xs lg:text-base text-nowrap text-black font-semibold py-1">
                 Get Free Career Evaluation
               </span>
             </ShinyButton>

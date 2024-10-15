@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "../ui/breadcrumb";
@@ -26,9 +25,9 @@ export function BreadcrumbWithCustomSeparator({
                 key={link.label}
                 className="flex items-center justify-center gap-2">
                 <BreadcrumbItem>
-                  <BreadcrumbLink>
+                  <>
                     <Link to={link.to}>{link.label}</Link>
-                  </BreadcrumbLink>
+                  </>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
               </div>
@@ -39,9 +38,9 @@ export function BreadcrumbWithCustomSeparator({
               <BreadcrumbItem
                 className="text-black font-semibold"
                 key={link.label}>
-                <BreadcrumbLink>
+                <>
                   <Link to={link.to}>{link.label}</Link>
-                </BreadcrumbLink>
+                </>
               </BreadcrumbItem>
             </div>
           );

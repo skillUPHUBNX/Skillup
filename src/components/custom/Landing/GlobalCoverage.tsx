@@ -36,7 +36,7 @@ const GlobalCoverage = () => {
           <div className="flex items-center justify-center lg:justify-start gap-2 my-4 lg:my-0">
             <Button text="Enroll Now" classname="py-3 px-8 lg:py-3 " />
             <ShinyButton className="border rounded-md py-3">
-              <span className="text-xs text-nowrap text-black font-semibold py-3">
+              <span className="text-sm lg:text-base text-nowrap text-black font-semibold py-3">
                 Get Free Career Evaluation
               </span>
             </ShinyButton>

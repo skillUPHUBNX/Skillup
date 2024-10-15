@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { headerNavigationLinks } from "../../constants";
 import Button from "../custom/Button";
 import {
@@ -51,14 +51,14 @@ const Header = () => {
             : "relative"
         } w-full h-20 px-8 py-2`}>
         <div className="w-full flex items-center justify-between h-full">
-          <div className="w-full">
+          <Link to={"/"}  className="w-full cursor-pointer">
             <h1 className="font-semibold text-xl lg:text-4xl text-green-primary">
               Skillup
             </h1>
             <p className="font-base text-xs text-green-primary tracking-wide">
               An initiative By Hubnex Labs
             </p>
-          </div>
+          </Link>
           <div className="w-full h-full hidden lg:flex items-center justify-end gap-6 px-4 text-base">
             {headerNavigationLinks.map((link, i) => {
               if (link.link)

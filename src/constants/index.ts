@@ -255,11 +255,11 @@ export const kickStartCard = [
     img: "/company/experienceOne.svg",
   },
   {
-    id: 4,
+    id: 2,
     tag: "Step-4",
     title: "Land Your Dream Job",
     para: "With our job placement assistance and network of industry connections, receive referrals, interviews, and personalized support to secure the job you’ve always wanted.",
-    img: "/company/experienceOne.svg",
+    img: "/company/experienceFour.svg",
   },
 ];
 export const reviews = [
