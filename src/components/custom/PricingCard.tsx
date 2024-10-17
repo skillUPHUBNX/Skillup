@@ -13,15 +13,16 @@ interface IProp {
 const PricingCard = ({ about, feature, id, link, name, plan, tag }: IProp) => {
   return (
     <div
-      className={`w-[374px] transition-all cursor-pointer hover:scale-[1.02] ${
+      className={`w-[374px] transition-all hover:scale-[1.02] ${
         id === 2 ? "h-[684px] bg-green-secondary text-white" : "h-[644px]"
       } rounded-lg overflow-hidden shadow-xl relative flex flex-col p-3 items-center  justify-around`}>
       <div className="flex flex-col items-center justify-center ">
         <h1 className="text-2xl lg:text-3xl font-semibold">{name}</h1>
-        <p className="my-1 text-sm  text-center leading-6 w-3/4">{about}</p>
+        <p className="my-1 text-sm md:text-base  text-center leading-6 px-2">{about}</p>
       </div>
       <h2 className="text-center text-2xl lg:text-3xl my-2 font-semibold z-40">
-        {plan}
+        {`${plan.split("-")[0]} `}
+        <span className={`"lowercase text-base text-black-100 font-normal ${id === 2 && "text-white"}`}>{plan.split("-")[1]}</span>
       </h2>
       {tag && (
         <button className="mx-auto bg-white/20 px-3 py-2 my-2 rounded-lg z-30">
@@ -32,7 +33,7 @@ const PricingCard = ({ about, feature, id, link, name, plan, tag }: IProp) => {
         <span className="w-[500px] absolute h-[500px] scale-150 rounded-[100%] bg-green-quaternary/50 top-[35%] "></span>
       )}
       <div
-        className={`w-full min-h-[380px] flex flex-col justify-around items-center z-40 ${
+        className={`w-full min-h-[374px] flex flex-col justify-around items-center z-40 ${
           id === 2 ? "bg-white text-black" : "bg-green-light"
         } rounded-lg p-3`}>
         <div className="w-full px-4">
@@ -45,7 +46,7 @@ const PricingCard = ({ about, feature, id, link, name, plan, tag }: IProp) => {
         </div>
         <Link
           to={link}
-          className={`w-[90%]  bottom-5 mx-auto ${
+          className={`w-[90%] cursor-pointer bottom-5 mx-auto ${
             id == 2 ? "bg-green-secondary" : "bg-white"
           } shadow-lg rounded-md`}>
           <button
