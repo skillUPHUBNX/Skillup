@@ -19,6 +19,9 @@ const aboutBreadScrum = [
   },
 ];
 const AboutUs = () => {
+
+  
+
   return (
     <div className="w-full">
       <Stripe />
