@@ -1,7 +1,6 @@
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -9,6 +8,7 @@ import {
   FormControl,
   FormField,
   FormItem,
+  FormLabel,
   FormMessage,
 } from "../ui/form";
 import {
@@ -23,6 +23,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Loader } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+
 const formSchema = z.object({
   username: z
     .string()
@@ -47,8 +48,7 @@ const formSchema = z.object({
       message: "Phone number must only contain digits",
     }),
   qualification: z.string().nonempty("Qualification is required"),
-  message: z
-    .string(),
+  message: z.string(), // Optional field, no validation
 });
 
 const SkillUpForm = () => {
@@ -89,6 +89,7 @@ const SkillUpForm = () => {
         setIsLoading(false);
       });
   }
+
   return (
     <div className="form shadow p-6 relative">
       <h1 className="text-center text-3xl mt-5 font-semibold text-green-three">
@@ -100,51 +101,71 @@ const SkillUpForm = () => {
       </p>
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          {/* Full Name Field */}
           <FormField
             control={form.control}
             name="username"
             render={({ field }) => (
               <FormItem>
+                <FormLabel>
+                  Full Name <span className="text-red-primary">*</span>
+                </FormLabel>
                 <FormControl>
                   <Input placeholder="Full Name" {...field} />
                 </FormControl>
-                <FormMessage />
+                <FormMessage/>
               </FormItem>
             )}
           />
+
+          {/* Email Field */}
           <FormField
             control={form.control}
             name="email"
             render={({ field }) => (
               <FormItem>
+                <FormLabel>
+                  Email <span className="text-red-primary">*</span>
+                </FormLabel>
                 <FormControl>
                   <Input placeholder="Email" {...field} />
                 </FormControl>
-                <FormMessage />
+                <FormMessage/>
               </FormItem>
             )}
           />
+
+          {/* Phone Number Field */}
           <FormField
             control={form.control}
             name="phonenumber"
             render={({ field }) => (
               <FormItem>
+                <FormLabel>
+                  Phone Number <span className="text-red-primary">*</span>
+                </FormLabel>
                 <FormControl>
                   <Input placeholder="Phone Number" {...field} />
                 </FormControl>
-                <FormMessage />
+                <FormMessage/>
               </FormItem>
             )}
           />
+
+          {/* Qualification Field */}
           <FormField
             control={form.control}
             name="qualification"
             render={({ field }) => (
               <FormItem>
+                <FormLabel>
+                  Qualification <span className="text-red-primary">*</span>
+                </FormLabel>
                 <Select
                   onValueChange={field.onChange}
-                  defaultValue={field.value}>
+                  defaultValue={field.value}
+                >
                   <FormControl>
                     <SelectTrigger>
                       <SelectValue placeholder="Select Qualifications" />
@@ -154,18 +175,21 @@ const SkillUpForm = () => {
                     <SelectItem value="Graduated">Graduated</SelectItem>
                     <SelectItem value="Masters">Masters</SelectItem>
                     <SelectItem value="Diploma">Diploma</SelectItem>
-                    <SelectItem value="N/A">Others+</SelectItem>
+                    <SelectItem value="pursuing">Pursuing</SelectItem>
                   </SelectContent>
                 </Select>
-                <FormMessage />
+                <FormMessage/>
               </FormItem>
             )}
           />
+
+          {/* Message Field */}
           <FormField
             control={form.control}
             name="message"
             render={({ field }) => (
               <FormItem>
+                <FormLabel>Message</FormLabel>
                 <FormControl>
                   <Textarea
                     placeholder="Message"
@@ -173,13 +197,16 @@ const SkillUpForm = () => {
                     {...field}
                   />
                 </FormControl>
-                <FormMessage />
+                <FormMessage/>
               </FormItem>
             )}
           />
+
+          {/* Submit Button */}
           <Button
             type="submit"
-            className="w-full bg-gradient-to-r from-green-tertiary to-50% to-green-three rounded-sm text-white font-semibold">
+            className="w-full bg-gradient-to-r from-green-tertiary to-50% to-green-three rounded-sm text-white font-semibold"
+          >
             {isLoading ? (
               <Loader />
             ) : (

@@ -11,7 +11,7 @@ const Footer = () => {
   const [hovered, setHovered] = useState<string | null>(null);
   return (
     <div className="w-full">
-      <div className="w-full h-full lg:h-[80vh] my-12 lg:my-32 p-5">
+      <div className="w-full h-full  my-12 lg:my-32 p-5">
         <div className="w-full md:w-[85%] mx-auto h-full flex flex-col lg:flex-row  items-center lg:items-start justify-between gap-10">
           <div className="w-full lg:w-[60%]">
             <Batch classname="bg-red-primary m-4 p-2 mx-auto lg:mx-0 px-4 rounded-full flex items-center justify-around gap-2 w-max">
