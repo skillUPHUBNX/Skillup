@@ -131,7 +131,7 @@ export const pricingData = [
     id: 1,
     name: "Starter Boost",
     about: "Perfect for those who are looking for a quick career jumpstart.",
-    plan: "₹3999-For 1 month",
+    plan: "₹3499-₹3999",
     tag:"For 1 Month",
     link: "/",
     feature: [
@@ -145,7 +145,7 @@ export const pricingData = [
     id: 3,
     name: "Pro Growth",
     about: "Ideal for those wanting more in-depth preparation and support.",
-    plan: "₹7999-For 3 Month",
+    plan: "₹9499-₹10499",
     link: "/",
     tag: "Save 5000 a year",
     feature: [
@@ -159,7 +159,7 @@ export const pricingData = [
     id: 2,
     name: "Career Accelerator",
     about: "Designed for individuals aiming for substantial growth and industry exposure.",
-    plan: "₹21000-For 6 month",
+    plan: "₹16999-₹21000",
     link: "/",
     tag: "Recommended ⭐",
     feature: [
@@ -173,7 +173,7 @@ export const pricingData = [
     id: 4,
     name: "Ultimate Success",
     about: "The complete package for mastering skills and maximising job opportunities.",
-    plan: "₹44999-for 12 Month",
+    plan: "₹32499-₹44999",
     link: "/",
     feature: [
       "All features of the 6 months plan",
