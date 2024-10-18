@@ -172,10 +172,9 @@ const SkillUpForm = () => {
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="Graduated">Graduated</SelectItem>
-                    <SelectItem value="Masters">Masters</SelectItem>
-                    <SelectItem value="Diploma">Diploma</SelectItem>
-                    <SelectItem value="pursuing">Pursuing</SelectItem>
+                    <SelectItem value="Graduated / pursuing">Graduated / Pursuing</SelectItem>
+                    <SelectItem value="Masters / pursuing">Masters / Pursuing</SelectItem>
+                    <SelectItem value="Diploma / pursuing">Diploma / Pursuing</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage/>
