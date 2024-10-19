@@ -11,16 +11,15 @@ const RefundPolicyComp = () => {
         ensures that both our learners and our team are treated fairly in such
         circumstances.
       </p>
+      
       <h1 className="text-left text-2xl lg:text-3xl my-3 font-semibold">
         Refund Eligibility
       </h1>
       <ul className=" ml-5 text-xl list-disc">
         <li>
-          You shall also receive an alphanumerical/numerical identification
-          number for tracking your grievances with the customer care. We assure
-          You that ExMyB will make all reasonable endeavours to address the
-          grievance made by You at the latest within 60 (Sixty) days from the
-          date of receipt of the grievance
+          <b>Full Refunds: </b>A full refund will be granted for any cancellation requests made up to <b> 7
+          days before </b>the start date of the program or workshop. The refund will be processed
+          using the same payment method used during the original purchase.
         </li>
       </ul>
       <h1 className="text-left text-2xl lg:text-3xl my-3 font-semibold">
