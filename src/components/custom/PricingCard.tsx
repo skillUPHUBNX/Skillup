@@ -12,12 +12,12 @@ interface IProp {
   tag?: string;
 }
 
-export default function PricingCard({ about, feature, id, link, name, plan,  }: IProp) {
+export default function PricingCard({ about, feature, id, link, name, plan,tag   }: IProp) {
   const [countdown, setCountdown] = useState<string>("");
 
   useEffect(() => {
-    const deadline = new Date(1729228714370);
-    deadline.setDate(deadline.getDate() + 3);
+    const deadline = new Date();
+    deadline.setDate(deadline.getDate() + 4); // Set the deadline 4 days from now
 
     const updateCountdown = () => {
       const now = new Date();
@@ -47,22 +47,22 @@ export default function PricingCard({ about, feature, id, link, name, plan,  }: 
       } rounded-lg overflow-hidden shadow-xl relative flex flex-col p-3 items-center justify-around`}
     >
       {/* Flash Sale Tag */}
-      
 
       <div className="flex flex-col items-center justify-center">
         <h1 className="text-2xl lg:text-3xl font-semibold">{name}</h1>
         <p className="my-1 text-sm md:text-base text-center leading-6 px-2">{about}</p>
       </div>
-      <h2 className="text-center text-2xl lg:text-3xl my-2 font-semibold z-40">
+      <h2 className="text-center text-2xl lg:text-3xl my-1 font-semibold z-40">
         {`${plan.split("-")[0]} `}
         <s className={`lowercase text-base text-black-100 font-normal ${id === 2 && "text-white"}`}>
           {plan.split("-")[1]}
         </s>
       </h2>
+      <span className={`${id === 2?"text-white z-10":""}`}>{tag}</span>
       <div className="mx-auto p-2 bg-green-two/80 rounded-lg z-50 flex items-center">
-          <Tag className={`w-4 h-4 mr-1 text-white`} />
-          <span className={`text-sm font-semibold text-white`}>Flash Sale</span>
-        </div>
+        <Tag className={`w-4 h-4 mr-1 text-white`} />
+        <span className={`text-sm font-semibold text-white`}>Flash Sale</span>
+      </div>
       {id === 2 && (
         <span className="w-[500px] absolute h-[500px] scale-150 rounded-[100%] bg-green-quaternary/50 top-[35%]"></span>
       )}

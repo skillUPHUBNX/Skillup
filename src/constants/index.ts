@@ -147,7 +147,7 @@ export const pricingData = [
     about: "Ideal for those wanting more in-depth preparation and support.",
     plan: "₹9499-₹10499",
     link: "/",
-    tag: "Save 5000 a year",
+    tag: "For 3 month",
     feature: [
       "Access to all services",
       "2 mock interview",
@@ -161,7 +161,7 @@ export const pricingData = [
     about: "Designed for individuals aiming for substantial growth and industry exposure.",
     plan: "₹16999-₹21000",
     link: "/",
-    tag: "Recommended ⭐",
+    tag: "For 6 month",
     feature: [
       "All features of the 3 months plan",
       "4 mock interview",
@@ -175,6 +175,7 @@ export const pricingData = [
     about: "The complete package for mastering skills and maximising job opportunities.",
     plan: "₹32499-₹44999",
     link: "/",
+    tag:"For 12 months",
     feature: [
       "All features of the 6 months plan",
       "6 mock interview",
