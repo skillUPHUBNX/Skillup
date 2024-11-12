@@ -25,6 +25,7 @@ module.exports = {
       "green-four": "#F0F6F0",
       "red-primary": "#E33629",
       "blue-primary": "#0274B3",
+      "green-radial":"#24BB8C",
       black: {
         DEFAULT: "#000000",
         100: "#666C79",

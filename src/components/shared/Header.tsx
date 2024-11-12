@@ -47,7 +47,7 @@ const Header = () => {
       <div
         className={`${
           isSticky
-            ? "fixed top-0 left-0 w-full bg-white shadow-lg z-50"
+            ? "fixed top-0 left-0 w-full bg-white shadow-lg z-[10000]"
             : "relative"
         } w-full h-20 px-8 py-2`}>
         <div className="w-full flex items-center justify-between h-full">
