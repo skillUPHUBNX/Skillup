@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Tag, Clock } from "lucide-react";
+import {  Clock } from "lucide-react";
 
 interface IProp {
   id: number;
@@ -16,7 +16,7 @@ export default function PricingCard({ about, feature, id, link, name, plan,tag  
   const [countdown, setCountdown] = useState<string>("");
 
   useEffect(() => {
-    const deadline = new Date();
+    const deadline = new Date(1731407693755);
     deadline.setDate(deadline.getDate() + 4); // Set the deadline 4 days from now
 
     const updateCountdown = () => {
@@ -47,6 +47,10 @@ export default function PricingCard({ about, feature, id, link, name, plan,tag  
       } rounded-lg overflow-hidden shadow-xl relative flex flex-col p-3 items-center justify-around`}
     >
       {/* Flash Sale Tag */}
+      <div className="mx-auto p-2 bg-red-primary rounded-lg z-50 flex items-center">
+        <img src="/icons/shock.svg" alt="" />
+        <span className={`text-sm font-semibold text-white`}>Flash Sale</span>
+      </div>
 
       <div className="flex flex-col items-center justify-center">
         <h1 className="text-2xl lg:text-3xl font-semibold">{name}</h1>
@@ -58,11 +62,7 @@ export default function PricingCard({ about, feature, id, link, name, plan,tag  
           {plan.split("-")[1]}
         </s>
       </h2>
-      <span className={`${id === 2?"text-white z-10":""}`}>{tag}</span>
-      <div className="mx-auto p-2 bg-green-two/80 rounded-lg z-50 flex items-center">
-        <Tag className={`w-4 h-4 mr-1 text-white`} />
-        <span className={`text-sm font-semibold text-white`}>Flash Sale</span>
-      </div>
+      <span className={`${id === 2?"text-white z-10":""} underline`}>{tag}</span>
       {id === 2 && (
         <span className="w-[500px] absolute h-[500px] scale-150 rounded-[100%] bg-green-quaternary/50 top-[35%]"></span>
       )}
@@ -82,9 +82,9 @@ export default function PricingCard({ about, feature, id, link, name, plan,tag  
 
         {/* Countdown Timer */}
         <div className="text-center mb-2 bg-yellow-100 p-3 rounded-lg w-full">
-          <p className="text-lg font-semibold flex items-center justify-center">
+          <p className="text-lg font-semibold bg-red-primary text-white py-2 flex items-center justify-center">
             <Clock className="w-5 h-5 mr-2 " />
-            {countdown === "Expired" ? "Offer Expired" : `Expires in: ${countdown}`}
+            {countdown === "Expired" ? "Offer Expired" : `Ends in: ${countdown}`}
           </p>
         </div>
 

@@ -13,8 +13,8 @@ const Hero = () => {
         <span className="absolute left-20 top-[20%] -translate-x-[20%] w-[15px] h-[15px] bg-green-one rounded-full"></span>
         <span className="absolute left-0 bottom-0 w-[160px] h-[160px] bg-green-radial blur-[100px] rounded-full"></span>
       <div className="flex flex-col lg:flex-row justify-between w-full lg:w-[90%] mx-auto p-5">
-          <div>
-            <h1 className="text-7xl font-bold">
+          <div className="w-full text-center  flex flex-col items-center ">
+            <h1 className="text-7xl font-bold text-nowrap">
               The <span className="text-green-tertiary">Ultimate</span> <br />
               <span className="text-green-tertiary">Launchpad</span> For <br />
               Your <span className="text-green-tertiary">Career!</span>
