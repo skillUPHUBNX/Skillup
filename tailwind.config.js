@@ -11,6 +11,7 @@ module.exports = {
   theme: {
     fontFamily: {
       Lato: ["lato"],
+      Antonio:["Antonio", "sans-serif"]
     },
     colors: {
       "green-primary": "#0DBA4B",

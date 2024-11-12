@@ -1,109 +1,108 @@
-import { useEffect, useState } from "react";
-import { badges, personImages } from "../../constants/index";
-import NumberTicker from "../magicui/number-ticker";
-import ShinyButton from "../magicui/shiny-button";
-import Batch from "./Batch";
-import Button from "./Button";
+'use client'
 
-const Overlay = ({ handleClose }: { handleClose: any }) => {
-  const [isVisible, setIsVisible] = useState(false);
+import { useEffect, useState } from "react"
+
+function CountdownTimer() {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 20,
+    hours: 2,
+    minutes: 1,
+    seconds: 3
+  })
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsVisible(true);
-    }, 1000);
-  }, []);
+    const timer = setInterval(() => {
+      setTimeLeft(prevTime => {
+        if (prevTime.days === 0 && prevTime.hours === 0 && prevTime.minutes === 0 && prevTime.seconds === 0) {
+          clearInterval(timer)
+          return prevTime
+        }
+
+        let newTime = { ...prevTime }
+
+        if (newTime.seconds > 0) {
+          newTime.seconds--
+        } else {
+          newTime.seconds = 59
+          if (newTime.minutes > 0) {
+            newTime.minutes--
+          } else {
+            newTime.minutes = 59
+            if (newTime.hours > 0) {
+              newTime.hours--
+            } else {
+              newTime.hours = 23
+              if (newTime.days > 0) {
+                newTime.days--
+              }
+            }
+          }
+        }
+
+        return newTime
+      })
+    }, 1000)
+
+    return () => clearInterval(timer)
+  }, [])
 
   return (
-    <>
-      {
-        <div className="fixed inset-0 flex items-center  justify-center z-50 ">
-          <div
-            className={`lg:w-[80vw] h-[90vh] lg:h-[80vh] bg-[#F0F6F0] relative overflow-hidden w-[90vw]
-              ${isVisible ? "animate-fade" : "opacity-0 scale-0"}`}>
-            <div className="relative w-full h-full lg:px-12 flex flex-col lg:flex-row items-center">
-              <button className="absolute right-5 top-5" onClick={handleClose}>
-                <img src="/icons/cross.svg" alt="crossIcons" />
-              </button>
-              <div className="w-full lg:w-1/2 flex flex-col items-start justify-start">
-                <Batch classname="bg-red-primary m-4 p-2 mx-auto lg:mx-0 px-4 rounded-full flex items-center justify-around gap-2 w-max">
-                  <span className="w-[9px] h-[9px] border-2 border-white rounded-full"></span>
-                  <p className="text-white">Limited Batch Size</p>
-                </Batch>
-                <h1 className="font-bold text-2xl lg:text-[40px] leading-10 text-center lg:text-left">
-                  Padh lo chaahe kahi se, Placement milegi yahi se!
-                </h1>
-                <p className="text-sm lg:text-lg text-black-100 p-2 my-1 lg:my-4 text-center lg:text-left">
-                  Earn industry-recognized certificates with each workshop you
-                  complete, showcasing your expertise and commitment to
-                  professional excellence.
-                </p>
-                <div className="flex gap-2 items-center flex-row lg:items-start justify-start">
-                  <div className="relative w-28 ml-3 lg:w-36 h-11 lg:h-auto">
-                    {personImages.map((person) => (
-                      <img
-                        src={person.src}
-                        className={person.className}
-                        key={person.alt}
-                        alt={person.alt}
-                      />
-                    ))}
-                  </div>
-                  <div className="flex flex-col  items-start justify-center">
-                    <h1 className="font-semibold text-black-100 text-[14px] *:">
-                      <NumberTicker value={4532} className="text-black-100" />+
-                      Learners
-                    </h1>
-                    <p className="text-black-100 text-[14px]">
-                      took their first step to succeed in their career{" "}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center justify-between mx-auto my-4 gap-1 ">
-                  <Button
-                    text="Enroll Now"
-                    classname="py-3 lg:px-14 lg:py-3 m-0"
-                  />
-                  <ShinyButton className="border rounded-md">
-                    <p className="text-[9px] text-nowrap text-black font-semibold py-1">
-                      Get Free Career Evaluation
-                    </p>
-                  </ShinyButton>
-                </div>
-                <div className="mx-auto flex items-center justify-between flex-wrap gap-1 w-[90%] lg:my-3">
-                  {badges.map((badge) => (
-                    <div key={badge.label} className="flex gap-1">
-                      <img src={badge.icon} alt={badge.icon} />{" "}
-                      <p className="text-green-three font-semibold text-xs ">
-                        {badge.label}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="w-full lg:w-1/2 h-full relative flex overflow-hidden">
-                <img
-                  src="/social/person1.svg"
-                  alt="person1"
-                  className="absolute bottom-0 object-cover h-[70%]  lg:h-[442px]"
-                />
-                <img
-                  src="/social/person3.svg"
-                  alt="person1"
-                  className="absolute left-1/2 z-10 bottom-0 -translate-x-1/2 object-cover  h-[80%]  lg:h-[485px]"
-                />
-                <img
-                  src="/social/person2.svg"
-                  alt="person1"
-                  className="absolute right-0 bottom-0 object-cover  h-[70%]  lg:h-[442px]"
-                />
-              </div>
+    <div className="flex gap-2 text-center">
+      {Object.entries(timeLeft).map(([key, value]) => (
+        <div key={key} className="bg-green-light rounded-lg px-2 py-4 w-full">
+          <div className="text-3xl font-extrabold text-green-quaternary">{String(value).padStart(2, '0')}</div>
+          <div className="text-xs uppercase text-[#1E3A1E]">{key}</div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+export default function Overlay({ handleClose }: { handleClose: () => void }) {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsVisible(true), 1000)
+    return () => clearTimeout(timer)
+  }, [])
+
+  return (
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+      <div className={`rounded-lg w-full max-w-7xl bg-[#7ED321] relative overflow-hidden transition-all duration-500 ${
+        isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+      }`}>
+        <button
+          onClick={handleClose}
+          className="absolute z-30 right-6 top-6 p-2 hover:bg-white/10 rounded-full transition-colors"
+          aria-label="Close"
+        >
+          <img src="/icons/cross.svg" alt="Close" className="w-6 h-6" />
+        </button>
+        
+        <div className="bg-white flex flex-col lg:flex-row gap-8 ">
+          <div className="flex-1">
+
+            <div>
+              <p className="text-4xl my-1">⏳</p>
             </div>
+            <div className="m-2 p-2">
+              <h1 className="text-5xl font-Antonio text-red-primary font-bold tracking-tighter mb-4">HURRY NOW!</h1>
+              <CountdownTimer />
+            </div>
+            
+            <div className="bg-[#FF3B30] mx-4  text-white px-4 py-2 rounded-full inline-block mb-4">
+              Offer ends
+            </div>
+            
+            <h1 className="m-2 mx-4 text-3xl font-Antonio transform scale-y-150 ">02 DEC 2024 💡 08:00PM</h1>
+            <p className=" m-2  mx-4 text-2xl tracking-tighter transform scale-y-110 font-Antonio">UNLOCK GUARANTEED CAREER SUCCESS</p>
+          </div>
+          
+          <div className="w-[66%] relative overflow-hidden">
+            <img src="/images/overlay.png" alt="Students" className="w-full h-full object-contain" />
           </div>
         </div>
-      }
-    </>
-  );
-};
-
-export default Overlay;
+      </div>
+    </div>
+  )
+}
