@@ -4,7 +4,7 @@ import NumberTicker from "../magicui/number-ticker";
 const Learner = () => {
   return (
     <div className="flex gap-2 items-center flex-row lg:items-start justify-center lg:justify-start">
-      <div className="relative w-[25%] lg:w-36 h-11 lg:h-auto">
+      <div className="relative w-[35%] lg:w-36 h-11 lg:h-auto">
         {personImages.map((person) => (
           <img
             src={person.src}
