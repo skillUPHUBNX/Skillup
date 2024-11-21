@@ -26,7 +26,7 @@ const Hero = () => {
               <Button
                 link="/about"
                 text="Enroll Now"
-                classname="py-3 px-8 lg:py-3 "
+                classname="py-3 px-4 lg:px-8 lg:py-3"
                 />
               <ShinyButton className="border rounded-md py-3">
                 <span className="text-xs md:text-base text-nowrap text-black font-semibold py-1">
