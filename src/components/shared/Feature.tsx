@@ -11,7 +11,7 @@ const Feature = () => {
     dispatch(showPopup());
   };
   return (
-    <div className="w-full h-full lg:h-screen  flex flex-col lg:flex-row items-center justify-center mt-1 lg:mt-[30px]">
+    <div className="w-full h-full lg:h-screen  flex flex-col lg:flex-row items-center justify-center mt-1 lg:mt-[3  0px]">
       <div className="w-full lg:w-1/2 pl-4 lg:h-screen flex items-start lg:justify-between flex-col overflow-hidden">
         <h1 className="text-2xl text-center my-2 lg:text-left mx-auto lg:mx-0 lg:text-5xl text-wrap w-[80%] font-semibold">
           We Offer a <i className="text-green-secondary">Comprehensive</i> Skill
