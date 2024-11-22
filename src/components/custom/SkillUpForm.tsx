@@ -91,7 +91,7 @@ const SkillUpForm = () => {
   }
 
   return (
-    <div className="form shadow p-6 relative">
+    <div className="form shadow p-6 relative z-10">
       <h1 className="text-center text-3xl mt-5 font-semibold text-green-three">
         Let's Connect
       </h1>

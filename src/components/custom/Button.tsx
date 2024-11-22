@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import ShinyButton from "../magicui/shiny-button";
 import { useDispatch } from "react-redux";
 import { showPopup } from "@/feature/popupSlice";
@@ -6,11 +5,9 @@ import { showPopup } from "@/feature/popupSlice";
 const Button = ({
   text,
   classname,
-  link = "",
 }: {
   text: string;
   classname?: string;
-  link?: string;
 }) => {
   const dispatch = useDispatch();
 
@@ -18,7 +15,7 @@ const Button = ({
     dispatch(showPopup());
   };
   return (
-    <Link to={link}>
+    
       <ShinyButton
         onClick={handleFormShow}
         className={`bg-green-secondary rounded-md flex items-center justify-center  ${classname}`}>
@@ -26,7 +23,7 @@ const Button = ({
           {text} <img src="/icons/arrright.svg" alt="" />
         </p>
       </ShinyButton>
-    </Link>
+  
   );
 };
 

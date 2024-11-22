@@ -16,7 +16,7 @@ export default function PricingCard({ about, feature, id, link, name, plan,tag  
   const [countdown, setCountdown] = useState<string>("");
 
   useEffect(() => {
-    const deadline = new Date(1731407693755);
+    const deadline = new Date(1732270215548);
     deadline.setDate(deadline.getDate() + 4); // Set the deadline 4 days from now
 
     const updateCountdown = () => {
