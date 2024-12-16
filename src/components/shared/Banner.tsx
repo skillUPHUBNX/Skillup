@@ -18,7 +18,7 @@ const Banner = () => {
             className="h-9 md:h-11 lg:h-1/3"
           />
           <div className="flex flex-col items-start justify-between">
-            <p className="text-[8px] text-white/50">Not Satisfied?</p>
+            <p className="text-[8px] md:text-lg  text-white/50">Not Satisfied?</p>
             <h1 className="text-[12px] lg:text-3xl font-semibold text-white">
               Get 100% Money Back Guarantee!
             </h1>
