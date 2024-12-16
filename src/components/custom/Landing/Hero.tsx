@@ -24,7 +24,6 @@ const Hero = () => {
             <Learner />
             <div className="flex items-center  gap-2 my-4 ">
               <Button
-                link="/about"
                 text="Enroll Now"
                 classname="py-3 px-4 lg:px-8 lg:py-3"
                 />

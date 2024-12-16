@@ -15,7 +15,6 @@ const Hero = () => {
       </div>
       <div className="flex items-center justify-between gap-2 my-4 lg:my-0">
         <Button
-          link="/about"
           text="Enroll Now"
           classname="py-3 px-8 lg:py-3 "
         />

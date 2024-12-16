@@ -23,7 +23,6 @@ const Mission = () => {
           </p>
           <div className="flex items-center justify-between lg:justify-start gap-1 lg:gap-2 my-4 lg:my-4">
             <Button
-              link="/about"
               text="Enroll Now"
               classname="py-3 px-8 lg:py-3 "
             />
@@ -58,7 +57,6 @@ const Mission = () => {
           </p>
           <div className="flex items-center justify-between lg:justify-start gap-1 lg:gap-2 my-4 lg:my-4">
             <Button
-              link="/about"
               text="Enroll Now"
               classname="py-3 px-8 lg:py-3 "
             />
